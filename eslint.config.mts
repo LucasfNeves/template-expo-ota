@@ -10,6 +10,15 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
   },
+  {
+    files: ['*.config.js', 'babel.config.js'],
+    languageOptions: {
+      globals: {
+        module: 'readonly',
+        require: 'readonly',
+      },
+    },
+  },
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   prettierConfig,
