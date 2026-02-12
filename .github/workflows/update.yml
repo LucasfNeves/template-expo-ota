@@ -1,4 +1,4 @@
-name: preview
+name: update
 on: pull_request
 
 jobs:
@@ -19,11 +19,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
-          cache: yarn
+          cache: 'pnpm'
 
       - name: Setup EAS
         uses: expo/expo-github-action@v8
@@ -32,9 +35,7 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
-      - name: Create preview
-        uses: expo/expo-github-action/preview@v8
-        with:
-          command: eas update --auto
+      - name: Publish update
+        run: eas update --branch preview --auto
