@@ -11,7 +11,8 @@
     "ts:check": "tsc --noEmit",
     "prepare": "husky",
     "dev:android": "npx expo run:android",
-    "android": "expo run:android"
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
