@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginFormData, loginSchema } from './loginSchema';
+import { useLoginMutation } from '@/shared/queries/auth/useLoginMutation';
 
 export function useLoginViewModel() {
+  const { loginMutation } = useLoginMutation();
+
   const {
     control,
     handleSubmit,
@@ -16,7 +19,8 @@ export function useLoginViewModel() {
   });
 
   const onSubmit = handleSubmit(async (data: LoginFormData) => {
-    console.log(data);
+    const userData = await loginMutation(data);
+    console.log(userData);
   });
 
   return {

@@ -1,18 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRegisterMutation } from '@/shared/queries/auth/useRegisterMutation';
-import { useStore } from '@/shared/store';
-import { useShallow } from 'zustand/shallow';
-import { RegisterFormData, registerSchema } from './RegisterSchema';
+import { useAuthStore } from '@/shared/store';
+import { RegisterFormData, registerSchema } from './registerSchema';
 
 export function useRegisterViewModel() {
   const { registerMutation } = useRegisterMutation();
 
-  const { setSession } = useStore(
-    useShallow((state) => ({
-      setSession: state.user.setSession,
-    }))
-  );
+  const setSession = useAuthStore((state) => state.auth.setSession);
 
   const {
     control,
