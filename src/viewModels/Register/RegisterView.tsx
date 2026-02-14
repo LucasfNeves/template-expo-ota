@@ -9,10 +9,7 @@ export function RegisterView() {
   const { onSubmit, control } = useRegisterViewModel();
   return (
     <KeyBoardContainer>
-      <ScrollView
-        className="flex-1"
-        contentContainerClassName="items-center justify-center px-[40px]"
-      >
+      <ScrollView className="flex-1" contentContainerClassName=" justify-center px-[40px]">
         <AuthFormHeader title="Crie sua conta" subTitle="Informe seus dados de acesso" />
         <AppInputController
           leftIcon="person-outline"
@@ -21,13 +18,7 @@ export function RegisterView() {
           placeholder="Seu nome completo"
           name="name"
         />
-        <AppInputController
-          leftIcon="mail-outline"
-          label="E-MAIL"
-          control={control}
-          placeholder="email@exemplo.com"
-          name="email"
-        />
+
         <AppInputController
           leftIcon="call-outline"
           label="TELEFONE"
@@ -35,6 +26,17 @@ export function RegisterView() {
           placeholder="(00) 0000-0000"
           name="phone"
         />
+
+        <Text className="text-base mt-6 font-bold text-gray-500"> Acesso</Text>
+
+        <AppInputController
+          leftIcon="mail-outline"
+          label="E-MAIL"
+          control={control}
+          placeholder="email@exemplo.com"
+          name="email"
+        />
+
         <AppInputController
           leftIcon="lock-closed-outline"
           label="SENHA"
