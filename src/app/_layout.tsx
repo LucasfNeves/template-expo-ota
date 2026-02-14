@@ -9,8 +9,7 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(public)/login" />
-          <Stack.Screen name="(public)/register" />
+          <Stack.Screen name="(public)" />
           <Stack.Screen name="(private)" />
         </Stack>
       </QueryClientProvider>
