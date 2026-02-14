@@ -1,19 +1,33 @@
-import { AppInput } from '@/shared/components/AppInput';
+import { AppInputController } from '@/shared/components/AppInputController';
 import { AuthFormHeader } from '@/shared/components/AuthFormHeader';
+import { KeyBoardContainer } from '@/shared/components/KeyboardContainer';
 import { router } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { useLoginViewModel } from './useLoginViewModel';
 
 export function LoginView() {
+  const { onSubmit, control } = useLoginViewModel();
   return (
-    <View className="items-center justify-center flex-1">
-      <AuthFormHeader title="Acesse sua conta" subTitle="Informe seu e-mail e senha para entrar" />
+    <KeyBoardContainer>
+      <View className="flex-1 items-center justify-center px-[40px]">
+        <AuthFormHeader title="Crie sua conta" subTitle="Informe seus dados de acesso" />
+        <AppInputController leftIcon="mail-outline" label="E-MAIL" control={control} name="email" />
+        <AppInputController
+          leftIcon="lock-closed-outline"
+          label="SENHA"
+          control={control}
+          name="password"
+          secureTextEntry
+        />
 
-      <AppInput leftIcon="mail-outline" label="E-MAIL" />
-      <AppInput leftIcon="lock-closed-outline" label="SENHA" secureTextEntry />
+        <TouchableOpacity onPress={onSubmit}>
+          <Text>Registrar</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => router.push('/register')}>
-        <Text>Registro</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={() => router.push('/login')}>
+          <Text>Login</Text>
+        </TouchableOpacity>
+      </View>
+    </KeyBoardContainer>
   );
 }

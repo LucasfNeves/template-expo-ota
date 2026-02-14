@@ -3,9 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRegisterMutation } from '@/shared/queries/auth/useRegisterMutation';
 import { useStore } from '@/shared/store';
 import { useShallow } from 'zustand/shallow';
-import { RegisterFormData, registerScheme } from './RegisterSchema';
-
-export type RegisterViewProps = ReturnType<typeof useRegisterViewModel>;
+import { RegisterFormData, registerSchema } from './RegisterSchema';
 
 export function useRegisterViewModel() {
   const { registerMutation } = useRegisterMutation();
@@ -21,7 +19,7 @@ export function useRegisterViewModel() {
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormData>({
-    resolver: yupResolver(registerScheme),
+    resolver: yupResolver(registerSchema),
     defaultValues: {
       name: 'Lucas Farias',
       email: 'lucas@teste.com.br',

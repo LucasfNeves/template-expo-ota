@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const registerScheme = yup.object({
+export const registerSchema = yup.object({
   name: yup.string().required('Nome é obrigatório').min(4, 'Nome deve ter pelo menos 4 caracteres'),
   email: yup.string().email('E-mail inválido').required('E-mail é obrigatório'),
   password: yup
@@ -17,4 +17,4 @@ export const registerScheme = yup.object({
     .matches(/^\d{11}$/, 'Telefone deve ter 11 dígitos (DDD + número)'),
 });
 
-export type RegisterFormData = yup.InferType<typeof registerScheme>;
+export type RegisterFormData = yup.InferType<typeof registerSchema>;
