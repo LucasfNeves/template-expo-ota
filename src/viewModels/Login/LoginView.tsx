@@ -11,12 +11,19 @@ export function LoginView() {
     <KeyBoardContainer>
       <View className="flex-1 items-center justify-center px-[40px]">
         <AuthFormHeader title="Crie sua conta" subTitle="Informe seus dados de acesso" />
-        <AppInputController leftIcon="mail-outline" label="E-MAIL" control={control} name="email" />
+        <AppInputController
+          leftIcon="mail-outline"
+          label="E-MAIL"
+          control={control}
+          placeholder="mail@example.com"
+          name="email"
+        />
         <AppInputController
           leftIcon="lock-closed-outline"
           label="SENHA"
           control={control}
           name="password"
+          placeholder="Sua senha"
           secureTextEntry
         />
 

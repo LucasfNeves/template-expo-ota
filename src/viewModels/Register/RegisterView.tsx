@@ -14,12 +14,25 @@ export function RegisterView() {
         contentContainerClassName="items-center justify-center px-[40px]"
       >
         <AuthFormHeader title="Crie sua conta" subTitle="Informe seus dados de acesso" />
-        <AppInputController leftIcon="person-outline" label="NOME" control={control} name="name" />
-        <AppInputController leftIcon="mail-outline" label="E-MAIL" control={control} name="email" />
+        <AppInputController
+          leftIcon="person-outline"
+          label="NOME"
+          control={control}
+          placeholder="Seu nome completo"
+          name="name"
+        />
+        <AppInputController
+          leftIcon="mail-outline"
+          label="E-MAIL"
+          control={control}
+          placeholder="email@exemplo.com"
+          name="email"
+        />
         <AppInputController
           leftIcon="call-outline"
           label="TELEFONE"
           control={control}
+          placeholder="(00) 0000-0000"
           name="phone"
         />
         <AppInputController
@@ -27,6 +40,7 @@ export function RegisterView() {
           label="SENHA"
           control={control}
           name="password"
+          placeholder="Sua senha"
           secureTextEntry
         />
         <AppInputController
@@ -34,6 +48,7 @@ export function RegisterView() {
           label="CONFIRMAR SENHA"
           control={control}
           name="confirmPassword"
+          placeholder="Confirme sua senha"
           secureTextEntry
         />
 
