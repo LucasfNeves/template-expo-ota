@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity } from 'react-native';
 import { AppInputController } from '../../shared/components/AppInputController';
 import { useRegisterViewModel } from './useRegisterViewModel';
 import { AuthFormHeader } from '@/shared/components/AuthFormHeader';
@@ -9,7 +9,10 @@ export function RegisterView() {
   const { onSubmit, control } = useRegisterViewModel();
   return (
     <KeyBoardContainer>
-      <View className="flex-1 items-center justify-center px-[40px]">
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="items-center justify-center px-[40px]"
+      >
         <AuthFormHeader title="Crie sua conta" subTitle="Informe seus dados de acesso" />
         <AppInputController leftIcon="person-outline" label="NOME" control={control} name="name" />
         <AppInputController leftIcon="mail-outline" label="E-MAIL" control={control} name="email" />
@@ -41,7 +44,7 @@ export function RegisterView() {
         <TouchableOpacity onPress={() => router.push('/login')}>
           <Text>Login</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </KeyBoardContainer>
   );
 }

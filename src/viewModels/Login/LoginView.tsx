@@ -21,11 +21,11 @@ export function LoginView() {
         />
 
         <TouchableOpacity onPress={onSubmit}>
-          <Text>Registrar</Text>
+          <Text>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => router.push('/login')}>
-          <Text>Login</Text>
+        <TouchableOpacity onPress={() => router.push('/register')}>
+          <Text>Registrar</Text>
         </TouchableOpacity>
       </View>
     </KeyBoardContainer>
