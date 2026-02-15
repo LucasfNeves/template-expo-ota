@@ -9,7 +9,7 @@ const getBaseUrl = () => {
   });
 };
 
-const baseURL = getBaseUrl();
+export const baseURL = getBaseUrl();
 
 export class ApiClient {
   private instance: AxiosInstance;
