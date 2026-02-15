@@ -32,6 +32,7 @@
     "expo-constants": "~18.0.13",
     "expo-dev-client": "~6.0.20",
     "expo-device": "~8.0.10",
+    "expo-image-picker": "^17.0.10",
     "expo-linking": "~8.0.11",
     "expo-router": "~6.0.23",
     "expo-status-bar": "~3.0.9",
@@ -48,6 +49,7 @@
     "react-native-screens": "~4.16.0",
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.2.2",
+    "toastify-react-native": "^7.2.3",
     "yup": "^1.7.1",
     "zustand": "^5.0.11"
   },

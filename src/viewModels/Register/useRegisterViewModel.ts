@@ -4,10 +4,12 @@ import { useRegisterMutation } from '@/shared/queries/auth/useRegisterMutation';
 import { useAuthStore } from '@/shared/store';
 import { RegisterFormData, registerSchema } from './registerSchema';
 import { useAppModal } from '@/shared/hooks/useAppModal';
+import { useCamera } from '@/shared/hooks/useCamera';
 
 export function useRegisterViewModel() {
   const { registerMutation } = useRegisterMutation();
   const { showSelectionModal } = useAppModal();
+  const { openCamera } = useCamera({});
 
   const setSession = useAuthStore((state) => state.setSession);
 
@@ -50,8 +52,9 @@ export function useRegisterViewModel() {
           text: 'Câmera',
           icon: 'camera',
           variant: 'primary',
-          onPress: () => {
-            console.log('Câmera');
+          onPress: async () => {
+            const uri = await openCamera();
+            console.log('Câmera:', uri);
           },
         },
       ],
