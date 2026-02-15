@@ -3,9 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRegisterMutation } from '@/shared/queries/auth/useRegisterMutation';
 import { useAuthStore } from '@/shared/store';
 import { RegisterFormData, registerSchema } from './registerSchema';
+import { useAppModal } from '@/shared/hooks/useAppModal';
 
 export function useRegisterViewModel() {
   const { registerMutation } = useRegisterMutation();
+  const { showSelectionModal } = useAppModal();
 
   const setSession = useAuthStore((state) => state.setSession);
 
@@ -30,9 +32,36 @@ export function useRegisterViewModel() {
     setSession({ user, token, refreshToken });
   });
 
+  const handleSelectAvatar = () => {
+    showSelectionModal({
+      transparent: true,
+      title: 'Selecione um avatar',
+      message: 'Escolha uma opção:',
+      options: [
+        {
+          text: 'Galeria',
+          icon: 'image',
+          variant: 'primary',
+          onPress: () => {
+            console.log('Galeria');
+          },
+        },
+        {
+          text: 'Câmera',
+          icon: 'camera',
+          variant: 'primary',
+          onPress: () => {
+            console.log('Câmera');
+          },
+        },
+      ],
+    });
+  };
+
   return {
     onSubmit,
     control,
     errors,
+    handleSelectAvatar,
   };
 }

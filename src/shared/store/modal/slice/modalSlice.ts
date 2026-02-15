@@ -14,7 +14,7 @@ interface ModalState {
 }
 
 interface ModalActions {
-  openModal: (content: ReactNode, config: ModalConfig) => void;
+  openModal: (content: ReactNode, config?: ModalConfig) => void;
   close: () => void;
 }
 
@@ -29,7 +29,7 @@ export const createModalStore: StoreCreator<ModalStore> = (set, get) => ({
     statusBarTranslucent: false,
   },
 
-  openModal: (content, config) =>
+  openModal: (content, config?: ModalConfig) =>
     set(() => ({
       isOpen: true,
       content,
