@@ -1,9 +1,16 @@
+import { apiClient } from '@/shared/api/api-client';
 import { useAuthStore } from '@/shared/store';
+import { useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 export default function Home() {
   const { logout } = useAuthStore();
 
+  useEffect(() => {
+    (async () => {
+      await apiClient.get('/products/categories');
+    })();
+  }, []);
   return (
     <View className="flex-1 items-center justify-center">
       <Text className="text-2xl font-bold">Welcome to the Home Screen!</Text>
